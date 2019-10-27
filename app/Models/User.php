@@ -29,6 +29,16 @@ class User extends Authenticatable implements JWTSubject
         'password'
     ];
 
+    public function workout()
+    {
+        return $this->hasMany('App\Models\Workout');
+    }
+
+    public function schedule()
+    {
+        return $this->hasMany('App\Models\Schedule');
+    }
+
     public function getJWTIdentifier() {
         return $this->getKey();
     }
