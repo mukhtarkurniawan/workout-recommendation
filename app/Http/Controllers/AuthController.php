@@ -29,6 +29,7 @@ class AuthController extends Controller
         ]);
 
         return response()->json('Data berhasil dimasukkan');
+        //return view('welcome'); return ke view signup
     }
 
 
@@ -58,6 +59,8 @@ class AuthController extends Controller
             'user_id' => $request->user()->id,
             'token'   => $token
         ]);
+
+        //return view('welcome'); return ke you're logged in
 
     }
 }

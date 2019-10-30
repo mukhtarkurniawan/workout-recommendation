@@ -39,6 +39,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany('App\Models\Schedule');
     }
 
+    public function result()
+    {
+        return $this->hasMany('App\Models\Result');
+    }
+
     public function getJWTIdentifier() {
         return $this->getKey();
     }

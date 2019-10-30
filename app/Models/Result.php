@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Workout extends Model
+class Result extends Model
 {
     protected $fillable = [
-        'height', 'weight', 'workoutType', 'exerciseType'
+        'program', 'set', 'repetition'
+    ];
+
+    protected $casts = [
+        'program' => 'int'
     ];
 
     public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
-
 }

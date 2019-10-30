@@ -25,6 +25,11 @@ Route::group(['middleware' => ['api']], function () {
         Route::post('/schedule', 'ScheduleController@store');
 
 
+        //============ Show ============================
+        Route::post('/result', 'ResultController@store');
+        Route::get('/result/show', 'ResultController@show');
+
+
     });
 
 });

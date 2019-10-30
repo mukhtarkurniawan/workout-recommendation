@@ -13,15 +13,15 @@ class WorkoutController extends Controller
         $this->validate($request, [
             'height'      => 'required',
             'weight'      => 'required',
+            'exerciseType'=> 'required',
             'workoutType' => 'required',
-            'bodyFat'     => '',
         ]);
 
         $workout = $request->user()->workout()->create([
             'height'       => $request->json('height'),
             'weight'       => $request->json('weight'),
-            'workoutType'  => $request->json('workoutType'),
-            'bodyFat'      => $request->json('bodyFat')
+            'exerciseType' => $request->json('exerciseType'),
+            'workoutType'  => $request->json('workoutType')
         ]);
 
         return $workout;
