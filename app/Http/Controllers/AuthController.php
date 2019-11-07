@@ -10,7 +10,8 @@ use JWTAuth;
 
 class AuthController extends Controller
 {
-    public function signup(Request $request){
+    public function signup(Request $request)
+    {
         // die('hard!');
         $this->validate($request, [
             'username'      => 'required|unique:users',
@@ -24,7 +25,7 @@ class AuthController extends Controller
             'username'      => $request->json('username'),
             'name'          => $request->json('name'),
             'email'         => $request->json('email'),
-            'phone_number'  => $request->json('email'),
+            'phone_number'  => $request->json('phone_number'),
             'password'      => bcrypt($request->json('password'))
         ]);
 
@@ -33,7 +34,8 @@ class AuthController extends Controller
     }
 
 
-    public function signin(Request $request){
+    public function signin(Request $request)
+    {
         // die('hard!');
         $this->validate($request, [
             'username' => 'required',
@@ -45,7 +47,7 @@ class AuthController extends Controller
 
         try {
             // attempt to verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt($credentials)) {
+            if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }
         } catch (JWTException $e) {

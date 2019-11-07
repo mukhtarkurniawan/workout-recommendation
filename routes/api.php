@@ -2,6 +2,15 @@
 
 Route::group(['middleware' => ['api']], function () {
 
+    Route::get('/api/auth/signin', function () {
+        return view('auth.signin');
+    });
+
+    Route::get('/api/auth/signup', function () {
+        return view('auth.signup');
+    });
+
+
     Route::post('/auth/signup', 'AuthController@signup');
     Route::post('/auth/signin', 'AuthController@signin');
 
@@ -28,8 +37,5 @@ Route::group(['middleware' => ['api']], function () {
         //============ Show ============================
         Route::post('/result', 'ResultController@store');
         Route::get('/result/show', 'ResultController@show');
-
-
     });
-
 });
