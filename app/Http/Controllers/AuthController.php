@@ -20,14 +20,17 @@ class AuthController extends Controller
             'phone_number'  => 'required',
             'password'      => 'required'
         ]);
-
-        User::create([
-            'username'      => $request->json('username'),
-            'name'          => $request->json('name'),
-            'email'         => $request->json('email'),
-            'phone_number'  => $request->json('phone_number'),
-            'password'      => bcrypt($request->json('password'))
-        ]);
+        $data = $request->all();
+        $data['password'] = bcrypt($data['password']);
+        User::create($data);
+        
+        // User::create([
+        //     'username'      => $request->json('username'),
+        //     'name'          => $request->json('name'),
+        //     'email'         => $request->json('email'),
+        //     'phone_number'  => $request->json('phone_number'),
+        //     'password'      => bcrypt($request->json('password'))
+        // ]);
 
         return response()->json('Data berhasil dimasukkan');
         //return view('welcome'); return ke view signup

@@ -128,6 +128,6 @@ class ResultController extends Controller
         };
 
         // die(Chest::get()->where('id',1));
-        return view('result', compact('array'));
+        // return view('result', compact('array'));
     }
 }

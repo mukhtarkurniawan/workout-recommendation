@@ -36,6 +36,6 @@ Route::group(['middleware' => ['api']], function () {
 
         //============ Show ============================
         Route::post('/result', 'ResultController@store');
-        Route::get('/result/show', 'ResultController@show');
+        Route::get('/result/show/{id}', 'ResultController@show');
     });
 });
